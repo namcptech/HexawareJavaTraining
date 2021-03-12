@@ -23,6 +23,7 @@ public class ThirdServlet extends HttpServlet {
 		String birthMonth=request.getParameter("Birthday_Month");
 		String birthYear=request.getParameter("Birthday_Year");
 		String gender=request.getParameter("Gender");
+		String[]	hobbies=request.getParameterValues("Hobbies");
 		
 		
 		out.print("<html>");
@@ -31,6 +32,21 @@ public class ThirdServlet extends HttpServlet {
 		out.print("<h3> Email :"+email+"</h3>");
 		out.print("<h3> DOB :"+birthDay+"-"+birthMonth+"-"+birthYear+"</h3>");
 		out.print("<h3> Gender :"+gender+"</h3>");
+		out.print("<h3> Gender :");
+		for(String hobby:hobbies)
+			out.print(hobby+"<br>");
+		out.print("</h3>");
+		out.print("<table border='1'>");
+		out.print("<thead>");
+		out.print("<tr><th>S.No</th><th>Examination</th><th>Board</th><th>Percentage</th><th>Year of Passing</th><tr>");
+		out.print("</thead>");
+		out.print("<tbody>");
+		out.print("<tr><td>1</td><td>Class X</td><td>"+request.getParameter("ClassX_Board")+"</td><td>"+request.getParameter("ClassX_Percentage")+"</td><td>"+request.getParameter("ClassX_YrOfPassing")+"</td></tr>");
+		out.print("<tr><td>2</td><td>Class XII</td><td>"+request.getParameter("ClassXII_Board")+"</td><td>"+request.getParameter("ClassXII_Percentage")+"</td><td>"+request.getParameter("ClassXII_YrOfPassing")+"</td></tr>");
+		out.print("<tr><td>3</td><td>Graduation</td><td>"+request.getParameter("Graduation_Board")+"</td><td>"+request.getParameter("Graduation_Percentage")+"</td><td>"+request.getParameter("Graduation_YrOfPassing")+"</td></tr>");
+		out.print("<tr><td>4</td><td>Masters</td><td>"+request.getParameter("Masters_Board")+"</td><td>"+request.getParameter("Masters_Percentage")+"</td><td>"+request.getParameter("Masters_YrOfPassing")+"</td></tr>");
+				out.print("</tbody>");
+		out.print("</table>");
 		out.print("</body");
 		out.print("</html>");
 		
